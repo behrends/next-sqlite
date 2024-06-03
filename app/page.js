@@ -1,10 +1,47 @@
+import { lucia, validateRequest } from '@/lib/auth';
+import { Form } from '@/components/form';
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
+
+// TODO: show other data
 import Users from '@/components/Users';
 
-export default function Home() {
+export default async function Home() {
+  const { user } = await validateRequest();
+  if (!user) {
+    return redirect('/login');
+  }
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-4xl">Next.js with SQLite</h1>    
-      <Users />
+      <h1 className="text-2xl font-bold mb-4">
+        Hi, {user.username}!
+      </h1>
+      <p>Die User ID ist {user.id}.</p>
+      <Form action={logout}>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Abmelden
+        </button>
+      </Form>
     </main>
   );
+}
+
+async function logout() {
+  'use server';
+  const { session } = await validateRequest();
+  if (!session) {
+    return {
+      error: 'Unauthorized',
+    };
+  }
+
+  await lucia.invalidateSession(session.id);
+
+  const sessionCookie = lucia.createBlankSessionCookie();
+  cookies().set(
+    sessionCookie.name,
+    sessionCookie.value,
+    sessionCookie.attributes
+  );
+  return redirect('/login');
 }
