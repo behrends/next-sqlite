@@ -5,7 +5,7 @@ import { Argon2id } from 'oslo/password';
 import { cookies } from 'next/headers';
 import { lucia, validateRequest } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import { Form } from '@/components/form';
+import Form from '@/components/Form';
 import { generateId } from 'lucia';
 
 export default async function Page() {

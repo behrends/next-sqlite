@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { logout } from '@/actions/logout';
 
 const appRoutes = [
   {
@@ -32,6 +33,9 @@ export default function Nav() {
             {route.label}
           </Link>
         ))}
+        <form action={logout}>
+          <button>Abmelden</button>
+        </form>
       </nav>
     </header>
   );

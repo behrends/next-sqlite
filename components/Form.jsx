@@ -2,7 +2,7 @@
 
 import { useFormState } from 'react-dom';
 
-export function Form({ children, action }) {
+export default function Form({ children, action }) {
   const [state, formAction] = useFormState(action, {
     error: null,
   });
