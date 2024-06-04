@@ -13,15 +13,8 @@ export default async function Home() {
   }
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-2xl font-bold mb-4">
-        Hi, {user.username}!
-      </h1>
+      <h1 className="mb-4">Hi, {user.username}!</h1>
       <p>Die User ID ist {user.id}.</p>
-      <Form action={logout}>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Abmelden
-        </button>
-      </Form>
     </main>
   );
 }

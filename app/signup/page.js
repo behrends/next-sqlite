@@ -14,42 +14,25 @@ export default async function Page() {
     return redirect('/');
   }
   return (
-    <div className="m-4">
-      <h1 className="text-2xl font-bold mb-4">Registrieren</h1>
+    <>
+      <h1 className="mb-2">Registrieren</h1>
       <Form action={signup}>
-        <label
-          htmlFor="username"
-          className="block text-sm font-medium text-gray-700"
-        >
+        <label htmlFor="username" className="block">
           Benutzername
         </label>
-        <input
-          name="username"
-          id="username"
-          className="mt-1 block w-300 py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-        />
+        <input name="username" id="username" />
         <br />
-        <label
-          htmlFor="password"
-          className="block text-sm font-medium text-gray-700"
-        >
+        <label htmlFor="password" className="block">
           Passwort
         </label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          className="mt-1 block w-300 py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-        />
+        <input type="password" name="password" id="password" />
         <br />
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Account erstellen
-        </button>
+        <button className="mt-2">Account erstellen</button>
       </Form>
-      <Link href="/login" className="text-blue-500 hover:underline">
+      <Link href="/login" className="self-end">
         Anmelden
       </Link>
-    </div>
+    </>
   );
 }
 
