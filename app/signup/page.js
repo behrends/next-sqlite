@@ -14,16 +14,15 @@ export default async function Page() {
     <>
       <h1 className="mb-2">Registrieren</h1>
       <Form action={signup}>
-        <label htmlFor="username" className="block">
-          Benutzername
-        </label>
-        <input name="username" id="username" />
-        <br />
-        <label htmlFor="password" className="block">
-          Passwort
-        </label>
-        <input type="password" name="password" id="password" />
-        <br />
+        <label htmlFor="username">Benutzername</label>
+        <input name="username" id="username" className="block" />
+        <label htmlFor="password">Passwort</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          className="block"
+        />
         <button className="mt-2">Account erstellen</button>
       </Form>
       <Link href="/login" className="self-end">
