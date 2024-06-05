@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { logout } from '@/actions/logout';
+import { logout } from '@/actions/auth';
 
 const appRoutes = [
   {
