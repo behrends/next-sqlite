@@ -23,6 +23,13 @@ export default async function Page() {
           id="password"
           className="block"
         />
+        <label htmlFor="password">Passwort bestätigen</label>
+        <input
+          type="password"
+          name="confirm_password"
+          id="confirm_password"
+          className="block"
+        />
         <button className="mt-2">Account erstellen</button>
       </Form>
       <Link href="/login" className="self-end">

@@ -92,14 +92,23 @@ export async function signup(_, formData) {
       error: 'Ungültiger Benutzername',
     };
   }
+
   const password = formData.get('password');
+  const confirmPassword = formData.get('confirm_password');
+
+  if (password !== confirmPassword) {
+    return {
+      error: 'Passwörter stimmen nicht überein',
+    };
+  }
+
   if (
     typeof password !== 'string' ||
     password.length < 6 ||
     password.length > 255
   ) {
     return {
-      error: 'Ungültiges Passwort',
+      error: 'Passwort muss länger als 6 Zeichen sein',
     };
   }
 
