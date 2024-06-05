@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { Argon2id } from 'oslo/password';
 import { generateId } from 'lucia';
-import { lucia, validateRequest } from '@/lib/auth';
+import { lucia, validateRequest } from '@/lib/lucia';
 import { prisma } from '@/lib/prisma';
 
 export async function login(_, formData) {

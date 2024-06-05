@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { redirect } from 'next/navigation';
 import { signup } from '@/actions/auth.js';
-import { validateRequest } from '@/lib/auth';
+import { validateRequest } from '@/lib/lucia';
 import Form from '@/components/Form';
 
 export default async function Page() {

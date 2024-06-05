@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { validateRequest } from '@/lib/auth';
+import { validateRequest } from '@/lib/lucia';
 import { redirect } from 'next/navigation';
 import { login } from '@/actions/auth.js';
 
