@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { logout } from '@/actions/auth';
 import { validateRequest } from '@/lib/lucia';
+import NavItems from '@/components/NavItems';
 
 const authRoutes = [
   {
@@ -33,16 +33,8 @@ export default async function Nav() {
   const routes = user ? appRoutes : authRoutes;
   return (
     <header className="sticky top-0 flex items-center h-16 border-b bg-background px-6">
-      <nav className="flex items-center gap-6 text-sm font-medium">
-        {routes.map((route) => (
-          <Link
-            key={route.href}
-            href={route.href}
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            {route.label}
-          </Link>
-        ))}
+      <nav className="flex items-center gap-2 text-sm font-medium">
+        <NavItems routes={routes} />
         {user && (
           <form action={logout}>
             <button>Abmelden</button>
