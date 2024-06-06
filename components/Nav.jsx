@@ -1,14 +1,11 @@
 import Link from 'next/link';
 import { logout } from '@/actions/auth';
+import { validateRequest } from '@/lib/lucia';
 
-const appRoutes = [
+const authRoutes = [
   {
     href: '/',
     label: 'Home',
-  },
-  {
-    href: '/dashboard',
-    label: 'Dashboard',
   },
   {
     href: '/login',
@@ -20,11 +17,24 @@ const appRoutes = [
   },
 ];
 
-export default function Nav() {
+const appRoutes = [
+  {
+    href: '/',
+    label: 'Home',
+  },
+  {
+    href: '/dashboard',
+    label: 'Dashboard',
+  },
+];
+
+export default async function Nav() {
+  const { user } = await validateRequest();
+  const routes = user ? appRoutes : authRoutes;
   return (
     <header className="sticky top-0 flex items-center h-16 border-b bg-background px-6">
       <nav className="flex items-center gap-6 text-sm font-medium">
-        {appRoutes.map((route) => (
+        {routes.map((route) => (
           <Link
             key={route.href}
             href={route.href}
@@ -33,9 +43,11 @@ export default function Nav() {
             {route.label}
           </Link>
         ))}
-        <form action={logout}>
-          <button>Abmelden</button>
-        </form>
+        {user && (
+          <form action={logout}>
+            <button>Abmelden</button>
+          </form>
+        )}
       </nav>
     </header>
   );

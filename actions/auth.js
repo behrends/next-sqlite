@@ -56,7 +56,7 @@ export async function login(_, formData) {
     sessionCookie.value,
     sessionCookie.attributes
   );
-  return redirect('/');
+  return redirect('/dashboard');
 }
 
 export async function logout() {
