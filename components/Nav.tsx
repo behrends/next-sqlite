@@ -2,6 +2,7 @@ import { LogOut } from 'lucide-react';
 import { logout } from '@/actions/auth';
 import { validateRequest } from '@/lib/lucia';
 import { Button } from '@/components/ui/button';
+import DarkModeToggle from '@/components/DarkModeToggle';
 import NavItems from '@/components/NavItems';
 
 // TODO: export type and use it in NavItems
@@ -40,7 +41,7 @@ export default async function Nav() {
   const { user } = await validateRequest();
   const routes = user ? appRoutes : authRoutes;
   return (
-    <header className="sticky top-0 flex items-center h-16 border-b bg-background px-6">
+    <header className="sticky top-0 flex justify-between items-center h-16 border-b bg-background px-6">
       <nav className="flex items-center gap-2 text-sm font-medium">
         <NavItems routes={routes} />
         {user && (
@@ -53,6 +54,7 @@ export default async function Nav() {
           </form>
         )}
       </nav>
+      <DarkModeToggle />
     </header>
   );
 }
