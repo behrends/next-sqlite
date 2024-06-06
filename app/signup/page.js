@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { signup } from '@/actions/auth.js';
 import { validateRequest } from '@/lib/lucia';
+import { Button } from '@/components/ui/button';
 import Form from '@/components/Form';
 
 export default async function Page() {
@@ -29,7 +30,7 @@ export default async function Page() {
           id="confirm_password"
           className="block"
         />
-        <button className="mt-2">Account erstellen</button>
+        <Button className="mt-2">Account erstellen</Button>
       </Form>
       <Link href="/login" className="self-end">
         Anmelden

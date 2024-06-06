@@ -1,5 +1,7 @@
+import { LogOut } from 'lucide-react';
 import { logout } from '@/actions/auth';
 import { validateRequest } from '@/lib/lucia';
+import { Button } from '@/components/ui/button';
 import NavItems from '@/components/NavItems';
 
 const authRoutes = [
@@ -37,7 +39,11 @@ export default async function Nav() {
         <NavItems routes={routes} />
         {user && (
           <form action={logout}>
-            <button>Abmelden</button>
+            <Button variant="outline">
+              {' '}
+              Abmelden
+              <LogOut className="ml-2 h-4 w-4" />
+            </Button>
           </form>
         )}
       </nav>
