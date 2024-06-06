@@ -47,7 +47,6 @@ export default async function Nav() {
         {user && (
           <form action={logout}>
             <Button variant="outline">
-              {' '}
               Abmelden
               <LogOut className="ml-2 h-4 w-4" />
             </Button>
