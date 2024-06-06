@@ -4,7 +4,13 @@ import { validateRequest } from '@/lib/lucia';
 import { Button } from '@/components/ui/button';
 import NavItems from '@/components/NavItems';
 
-const authRoutes = [
+// TODO: export type and use it in NavItems
+type Route = {
+  href: string;
+  label: string;
+};
+
+const authRoutes: Route[] = [
   {
     href: '/',
     label: 'Home',
@@ -19,7 +25,7 @@ const authRoutes = [
   },
 ];
 
-const appRoutes = [
+const appRoutes: Route[] = [
   {
     href: '/',
     label: 'Home',

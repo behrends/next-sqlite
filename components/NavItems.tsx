@@ -4,7 +4,14 @@ import { usePathname } from 'next/navigation';
 // TODO: use cn after including shadcn/ui
 // import { cn } from '@/lib/utils';
 
-export default function NavItems({ routes }) {
+export default function NavItems({
+  routes,
+}: {
+  routes: {
+    href: string;
+    label: string;
+  }[]; // TODO: use Route type from Nav.tsx
+}) {
   const pathname = usePathname();
   return (
     <>

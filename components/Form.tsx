@@ -2,7 +2,16 @@
 
 import { useFormState } from 'react-dom';
 
-export default function Form({ children, action }) {
+export default function Form({
+  children,
+  action,
+}: {
+  children: React.ReactNode;
+  action: (
+    prevState: any,
+    formData: FormData
+  ) => Promise<ActionResult>;
+}) {
   const [state, formAction] = useFormState(action, {
     error: null,
   });
@@ -12,4 +21,8 @@ export default function Form({ children, action }) {
       <p>{state.error}</p>
     </form>
   );
+}
+
+export interface ActionResult {
+  error: string | null;
 }
