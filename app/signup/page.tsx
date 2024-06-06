@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { signup } from '@/actions/auth.js';
 import { validateRequest } from '@/lib/lucia';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Form from '@/components/Form';
+import SubmitButton from '@/components/SubmitButton';
 
 export default async function Page() {
   const { user } = await validateRequest();
@@ -26,7 +26,9 @@ export default async function Page() {
           name="confirm_password"
           id="confirm_password"
         />
-        <Button className="mt-2">Account erstellen</Button>
+        <SubmitButton className="mt-2">
+          Account erstellen
+        </SubmitButton>
       </Form>
       <Link href="/login" className="self-end">
         Anmelden

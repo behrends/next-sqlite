@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { validateRequest } from '@/lib/lucia';
 import { redirect } from 'next/navigation';
 import { login } from '@/actions/auth.js';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Form from '@/components/Form';
+import SubmitButton from '@/components/SubmitButton';
 
 export default async function Page() {
   const { user } = await validateRequest();
@@ -19,7 +19,7 @@ export default async function Page() {
         <Input name="username" id="username" />
         <Label htmlFor="password">Passwort</Label>
         <Input type="password" name="password" id="password" />
-        <Button className="mt-2">Weiter</Button>
+        <SubmitButton className="mt-2">Weiter</SubmitButton>
       </Form>
       <Link href="/signup" className="self-end">
         Registrieren
