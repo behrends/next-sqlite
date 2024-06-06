@@ -2,15 +2,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { Route } from '@/lib/types';
 
-export default function NavItems({
-  routes,
-}: {
-  routes: {
-    href: string;
-    label: string;
-  }[]; // TODO: use Route type from Nav.tsx
-}) {
+export default function NavItems({ routes }: { routes: Route[] }) {
   const pathname = usePathname();
   return (
     <>

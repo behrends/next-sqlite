@@ -1,15 +1,10 @@
 import { LogOut } from 'lucide-react';
 import { logout } from '@/actions/auth';
 import { validateRequest } from '@/lib/lucia';
+import { Route } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import DarkModeToggle from '@/components/DarkModeToggle';
 import NavItems from '@/components/NavItems';
-
-// TODO: export type and use it in NavItems
-type Route = {
-  href: string;
-  label: string;
-};
 
 const authRoutes: Route[] = [
   {
