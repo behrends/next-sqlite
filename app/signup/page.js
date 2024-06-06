@@ -7,9 +7,8 @@ import Form from '@/components/Form';
 
 export default async function Page() {
   const { user } = await validateRequest();
-  if (user) {
-    return redirect('/');
-  }
+  if (user) return redirect('/');
+
   return (
     <>
       <h1 className="mb-2">Registrieren</h1>
