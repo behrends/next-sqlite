@@ -39,6 +39,8 @@ export default async function Nav() {
     <header className="sticky top-0 flex justify-between items-center h-16 border-b bg-background px-6">
       <nav className="flex items-center gap-2 text-sm font-medium">
         <NavItems routes={routes} />
+      </nav>
+      <div className="flex flex-row gap-2">
         {user && (
           <form action={logout}>
             <Button variant="outline">
@@ -47,8 +49,8 @@ export default async function Nav() {
             </Button>
           </form>
         )}
-      </nav>
-      <DarkModeToggle />
+        <DarkModeToggle />
+      </div>
     </header>
   );
 }
